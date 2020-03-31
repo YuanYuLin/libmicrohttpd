@@ -64,12 +64,13 @@ def MAIN_ENV(args):
 def MAIN_EXTRACT(args):
     set_global(args)
 
-    libmicrohttpd_so = "libmicrohttpd.so.12.39.0"
+    lib_so = "libmicrohttpd.so.10.27.0"
 
     ops.mkdir(dst_lib_dir)
-    ops.copyto(ops.path_join(src_usr_lib_dir, libmicrohttpd_so), dst_lib_dir)
-    ops.ln(dst_lib_dir, libmicrohttpd_so, "libmicrohttpd.so.12")
-    ops.ln(dst_lib_dir, libmicrohttpd_so, "libmicrohttpd.so")
+    ops.copyto(ops.path_join(src_usr_lib_dir, lib_so), dst_lib_dir)
+    ops.ln(dst_lib_dir, lib_so, "libmicrohttpd.so.10.27")
+    ops.ln(dst_lib_dir, lib_so, "libmicrohttpd.so.10")
+    ops.ln(dst_lib_dir, lib_so, "libmicrohttpd.so")
 
     ops.mkdir(src_include_dir)
     ops.copyto(ops.path_join(base_include_dir, "microhttpd.h"), src_include_dir)
